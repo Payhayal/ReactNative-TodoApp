@@ -4,7 +4,8 @@ import React from 'react';
 const App = () => {
   return (
     <View>
-      <Text>App</Text>
+      <Text>week1 heyyy!!!</Text>
+      <Text>This is my first commit in week 1</Text>
     </View>
   );
 };

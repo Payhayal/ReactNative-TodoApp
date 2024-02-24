@@ -11,6 +11,7 @@ import Header from './src/components/header';
 import generalStyles from './src/utils/generalStyles';
 import Input from './src/components/input';
 import {colors} from './src/utils/constants';
+import Todo from './src/components/todo';
 
 const App = () => {
   const [text, setText] = useState('');
@@ -41,8 +42,10 @@ const App = () => {
         {todos.length === 0 ? (
           <Text style={styles.emptyText}>You have no todos yet!</Text>
         ) : (
-          <ScrollView>
-            <Text>ddfdfd</Text>
+          <ScrollView style={styles.scrollView}>
+            {todos?.map(todo => (
+              <Todo key={todo?.id} todo={todo} />
+            ))}
           </ScrollView>
         )}
       </View>

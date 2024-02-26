@@ -1,12 +1,18 @@
 import {View, Text, TouchableOpacity, Alert} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './style';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {colors} from '../../utils/constants';
+import EditModal from '../editModal';
 
 const Todo = ({todo = {}, todos = [], setTodos = () => {}}) => {
+  const [openModal, setOpenModal] = useState(false);
+  const [willEditText, setWillEditText] = useState(todo.text);
+  const [hasError, setHasError] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
   const deleteTodo = () => {
-    Alert.alert('Delete', `Are you sure you want to delete ${todo?.text}?`, [
+    Alert.alert('Delete', `Are you sure you want to delete "${todo?.text}"?`, [
       {
         text: 'Cancel',
         style: 'cancel',
@@ -25,7 +31,7 @@ const Todo = ({todo = {}, todos = [], setTodos = () => {}}) => {
   const changeCompleted = () => {
     Alert.alert(
       'Update',
-      `Are you sure ${todo?.text} will be marked as ${
+      `Are you sure "${todo?.text}" will be marked as ${
         todo.completed ? 'uncompleted' : 'completed'
       }?`,
       [
@@ -55,6 +61,34 @@ const Todo = ({todo = {}, todos = [], setTodos = () => {}}) => {
     );
   };
 
+  const editTodo = () => {
+    // VALIDATION
+    if (willEditText === '') {
+      setHasError(true);
+      setErrorMsg('*Text field cannot be left empty');
+      setTimeout(() => {
+        setHasError(false);
+        setErrorMsg('');
+      }, 2000);
+      return;
+    }
+    // UPDATE INPUT
+    const tempArr = [];
+    for (let i = 0; i < todos?.length; i++) {
+      if (todos[i].id !== todo.id) {
+        tempArr.push(todos[i]);
+      } else {
+        const updatedTodo = {
+          ...todo,
+          text: willEditText,
+        };
+        tempArr.push(updatedTodo);
+      }
+    }
+    setTodos(tempArr);
+    setOpenModal(false);
+  };
+
   return (
     <View style={styles.todoWrapper}>
       <View style={styles.textWrapper}>
@@ -73,13 +107,22 @@ const Todo = ({todo = {}, todos = [], setTodos = () => {}}) => {
             color={colors.green}
           />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setOpenModal(true)}>
           <Icon name="edit" size={25} color={colors.bgPrimary} />
         </TouchableOpacity>
         <TouchableOpacity onPress={deleteTodo}>
           <Icon name="closecircle" size={25} color={colors.danger} />
         </TouchableOpacity>
       </View>
+      <EditModal
+        willEditText={willEditText}
+        setWillEditText={setWillEditText}
+        visible={openModal}
+        closeModal={() => setOpenModal(false)}
+        onConfirm={editTodo}
+        hasError={hasError}
+        errorMsg={errorMsg}
+      />
     </View>
   );
 };

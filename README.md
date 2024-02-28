@@ -1,8 +1,32 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+## My Todo App Setup
+
+- npx react-native init todonative
+- npm start (metro)
+- npm run ios
+- npm run android
+
+Libraries
+
+- React Native Vector Icons >> (npm install --save react-native-vector-icons)
+- React Native AsyncStorage >> (npm install @react-native-async-storage/async-storage)
+
+## SCREEN GIF
+
+![](./src/components/assets/todo.gif)
+
+## SCREEN VIEW
+
+![](./src/components/assets/1.png)
+
+![](./src/components/assets/2.png)
+
+![](./src/components/assets/3.png)
 
 # Getting Started
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+
+> **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
 ## Step 1: Start the Metro Server
 

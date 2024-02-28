@@ -1,20 +1,17 @@
-## My Todo App Setup
+# Libraries Used
 
-- npx react-native init todonative
-- npm start (metro)
-- npm run ios
-- npm run android
+````- React Native Vector Icons >>
+(npm install --save react-native-vector-icons)
+- React Native AsyncStorage >>
+(npm install @react-native-async-storage/async-storage)```
 
-Libraries
 
-- React Native Vector Icons >> (npm install --save react-native-vector-icons)
-- React Native AsyncStorage >> (npm install @react-native-async-storage/async-storage)
 
-## SCREEN GIF
+#  SCREEN GIF
 
 ![](./src/components/assets/todo.gif)
 
-## SCREEN VIEW
+# SCREEN VIEW
 
 ![](./src/components/assets/1.png)
 
@@ -40,7 +37,7 @@ npm start
 
 # OR using Yarn
 yarn start
-```
+````
 
 ## Step 2: Start your Application
 

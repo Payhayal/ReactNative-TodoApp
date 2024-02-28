@@ -1,13 +1,14 @@
 # Libraries Used
 
-````- React Native Vector Icons >>
+```
+- React Native Vector Icons >>
 (npm install --save react-native-vector-icons)
 - React Native AsyncStorage >>
-(npm install @react-native-async-storage/async-storage)```
+(npm install @react-native-async-storage/async-storage)
 
+```
 
-
-#  SCREEN GIF
+# SCREEN GIF
 
 ![](./src/components/assets/todo.gif)
 
@@ -37,7 +38,7 @@ npm start
 
 # OR using Yarn
 yarn start
-````
+```
 
 ## Step 2: Start your Application
 
